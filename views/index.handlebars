@@ -1,0 +1,64 @@
+<div class="weather-container">
+    <div class="search-section">
+        <div class="search-box">
+            <input type="text" id="cityInput" placeholder="Şehir adı giriniz...">
+            <button onclick="getWeather()">
+                <i class="fas fa-search"></i> Ara
+            </button>
+        </div>
+    </div>
+
+    <div class="weather-info" id="weatherInfo">
+        <div class="current-weather">
+            <div class="weather-header">
+                <h2 id="cityName">{{city}}, {{country}}</h2>
+                <img src="{{icon}}" alt="weather icon" class="weather-icon">
+            </div>
+            
+            <div class="weather-details">
+                <div class="temperature">
+                    <span id="temperature">{{temperature}}</span>°C
+                </div>
+                <div class="description" id="description">
+                    {{description}}
+                </div>
+                <div class="additional-info">
+                    <div class="info-item">
+                        <i class="fas fa-tint"></i>
+                        <span>Nem: <span id="humidity">{{humidity}}</span>%</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-wind"></i>
+                        <span>Rüzgar: <span id="windSpeed">{{windSpeed}}</span> km/s</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="charts-container">
+            <!-- Sıcaklık Grafiği -->
+            <div class="chart-box">
+                <h3>5 Günlük Sıcaklık Tahmini</h3>
+                <canvas id="temperatureChart"></canvas>
+            </div>
+
+            <!-- Nem ve Basınç Grafiği -->
+            <div class="chart-box">
+                <h3>Nem ve Basınç Değişimi</h3>
+                <canvas id="humidityPressureChart"></canvas>
+            </div>
+
+            <!-- Rüzgar Hızı Grafiği -->
+            <div class="chart-box">
+                <h3>Saatlik Rüzgar Hızı</h3>
+                <canvas id="windChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    {{#if error}}
+    <div class="error-message">
+        {{error}}
+    </div>
+    {{/if}}
+</div>
